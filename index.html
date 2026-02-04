@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Some Indian Cities Breathe Worse Air Than Others</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+/* --- Base layout --- */
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #f7f8fb;
+  color: #111;
+  margin: 0;
+  padding: 0;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Container --- */
+
+.container {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 70px 60px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+/* --- Typography --- */
+
+h1 {
+  font-size: 3.4rem;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 2.1rem;
+  margin-top: 100px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #e63946;
+  margin-top: 14px;
+  border-radius: 3px;
+}
+
+p {
+  font-size: 1.08rem;
+  margin-bottom: 22px;
+  color: #222;
+  max-width: 75ch; /* improves readability */
+}
+
+/* Lead paragraph */
+
+.lead {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+/* Pull quote */
+
+.pull-quote {
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 30px 36px;
+  margin: 70px 0;
+  background: linear-gradient(90deg, #fff5f5, #ffffff);
+  border-radius: 12px;
+  color: #b00020;
+}
+
+/* --- Plot blocks --- */
+
+.plot-block {
+  background: #fafafa;
+  padding: 28px;
+  margin: 70px 0;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+.plot-block:hover {
+  transform: translateY(-3px);
+}
+
+.plot-context {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 14px;
+}
+
+/* --- Embedded plots --- */
+
+iframe {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* --- Image overlay section --- */
+
+.delhi-pollution {
+  position: relative;
+  padding: 40px;
+  background-image: url("visuals/delhi_pollution.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #111;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.delhi-pollution::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.78);
+  z-index: 0;
+}
+
+.delhi-pollution p {
+  position: relative;
+  z-index: 1;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* --- Footer --- */
+
+footer {
+  margin-top: 140px;
+  font-size: 0.95rem;
+  border-top: 2px solid #000;
+  padding-top: 28px;
+  color: #555;
+}
+
+/* --- Print/PDF optimization --- */
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .container {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .plot-block:hover {
+    transform: none;
+  }
+
+
+}
+
+.hypothesis-check {
+  margin: 40px 0;
+  padding: 20px 26px;
+  background: #f3fff5;
+  border-left: 6px solid #2ecc71;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #0b5d2a;
+}
+
+.hypothesis-check strong {
+  font-weight: 800;
+}
+
+</style>
+
+</head>
+
+<body>
+<!-- <div    class="watermark">AIR</div> -->
+
+
+
+<div class="container">
+
+<h1>Why Some Indian Cities Breathe Worse Air Than Others</h1>
+<h2>Executive Summary</h2>
+
+<p class="lead">
+Delhi and several cities in northern India experience structurally higher pollution
+exposure because winter atmospheric dispersion collapses and pollutants remain trapped.
+Natural experiments such as Diwali and the COVID lockdown show that emissions interact
+with geography to produce persistent inequality. Temporary improvements are possible,
+but without seasonal and regional policy aligned with atmospheric behavior, gains quickly
+reverse. The evidence suggests air pollution is not episodic — it is systemic.
+</p>
+
+<p >
+When people talk about “air pollution,” they often imagine smoke-filled skies or the sharp
+smell of exhaust. But the most dangerous form of urban air pollution is largely invisible.
+It is made up of microscopic particles known as PM2.5 — particulate matter with a diameter
+of less than 2.5 micrometers — small enough to bypass the body’s natural defenses and enter
+the bloodstream through the lungs.
+</p>
+
+
+<p>
+PM2.5 is not a single substance. It is a mixture of dust, soot, smoke, and chemical residues
+released from vehicles, power plants, construction activity, industrial processes, and the
+burning of fuels and waste. Because these particles are roughly thirty times smaller than the
+width of a human hair, they remain suspended in the air for long periods and travel deep into
+the respiratory system when inhaled.
+</p>
+
+<p>
+Decades of epidemiological research have linked long-term exposure to PM2.5 with increased
+risks of heart disease, stroke, asthma, reduced lung development, and premature death.
+For this reason, PM2.5 has become the most widely used indicator of air pollution severity
+in public health studies and regulatory frameworks worldwide.
+</p>
+
+<p>
+Air Quality Index (AQI) values, which are commonly reported in weather apps and news
+headlines, are derived from pollutant concentrations like PM2.5. Among these pollutants,
+PM2.5 often dominates AQI calculations in Indian cities, especially during winter months.
+In practice, this means that when AQI levels rise sharply, it is usually PM2.5 driving the
+increase.
+</p>
+
+
+<p >
+Air pollution in India is often discussed as a national emergency, but it is lived as a deeply
+unequal urban experience. On some mornings, entire cities disappear behind a grey veil —
+a haze of fine particulate matter that reduces visibility and quietly harms health — while
+others breathe under comparatively clearer skies. These differences are not accidents of
+chance. They are the outcome of systems.
+</p>
+
+<p>
+India’s urbanisation story is frequently told through numbers — population growth, GDP
+contribution, vehicle registrations, infrastructure spending. These metrics suggest that many
+Indian cities are following similar developmental trajectories. Yet air quality data tells a very
+different story. Cities that appear comparable on paper diverge sharply in how polluted their
+air becomes, how long pollution lingers, and how often residents are exposed to hazardous
+conditions.
+</p>
+
+<p>
+This data science project examines air quality data from 2015 to 2024 to understand why
+this divergence exists. We set out to answer: <em>Why do some Indian cities breathe worse air
+than others, and what do the data say about causes and possible solutions?</em> Rather than
+treating pollution as a single number or a collection of isolated events, the analysis
+approaches air quality as a dynamic system shaped by emissions, geography, climate, and
+timing. Delhi serves as the central case study — not because it is unique, but because it
+reveals what happens when pollution has nowhere to go. The narrative below walks through
+the data, visualisations, and evidence that lead to the conclusion.
+</p>
+
+<h2>Hypotheses</h2>
+
+<p>
+This analysis is guided by four testable hypotheses. First, that pollution exposure
+is unevenly distributed across Indian cities. Second, that air pollution compresses
+into predictable seasonal windows. Third, that sudden emission shocks reveal structural
+fragility in urban air systems. And fourth, that temporary emission reductions lead
+to rapid but unstable improvements.
+</p>
+
+<p>
+The sections that follow evaluate these hypotheses using historical AQI data,
+seasonal patterns, and natural experiments such as Diwali and the COVID lockdown.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    <strong>Live context:</strong> While this article focuses on historical patterns
+    and structural causes of air pollution, current air quality conditions across India
+    continue to evolve in real time.
+  </div>
+
+  <p style="font-size:1.05rem; margin-top:20px;">
+    To explore current PM2.5 levels interactively, view the live monitoring map maintained
+    by OpenAQ:
+  </p>
+
+  <iframe 
+    src="plots/all_india.html"
+    width="100%"
+    height="650"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+
+  <p style="font-size:0.95rem; font-style:italic; margin-top:18px;">
+    The live map opens in a new tab and reflects current reporting availability.
+    Uneven coverage mirrors the same monitoring gaps discussed in this analysis.
+  </p>
+</div>
+
+
+<p>
+Before comparing cities, it is important to understand where historical PM2.5
+data actually exists. This map shows monitoring coverage rather than pollution
+severity. Colored regions indicate states with consistent long-term PM2.5 records,
+while grey regions represent gaps in historical measurement. Absence of color does
+not mean clean air — it means absence of reliable monitoring. These uneven data
+boundaries limit nationwide comparison and already introduce inequality into what
+can be studied and regulated.
+</p>
+
+
+<div class="plot-block">
+  <div class="plot-context">
+    State-wise PM2.5 monitoring coverage across India.
+    States shown in grey indicate the absence of historical PM2.5 measurements,
+    reflecting gaps in monitoring infrastructure rather than clean air.
+  </div>
+
+  <iframe 
+    src="plots/india_pm25_state_map1.html"
+    width="100%"
+    height="650"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+</div>
+<p><strong>Figure:</strong> Historical PM2.5 monitoring coverage. Grey regions indicate missing data, not low pollution.</p>
+
+
+<!-- <div class="plot-block">
+  <div class="plot-context">
+    PM2.5 snapshot across Indian monitoring stations (day-average).
+    Each point is a station; colour reflects current PM2.5 level. This view
+    complements the state-level coverage map by showing station-level variation.
+  </div>
+  <iframe 
+    src="plots/india_pm25_snapshot_map.html"
+    width="100%"
+    height="600"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+</div> -->
+
+<div class="pull-quote">
+“Air pollution is not just about how much is produced — it is about how much is allowed to remain.”
+</div>
+
+<p>
+At this point, a natural question emerges: why focus so much attention on Delhi?
+The answer is not political, symbolic, or anecdotal — it is statistical.
+Across nearly every comparison in the data, Delhi consistently appears at the
+upper extreme of pollution exposure, making it a revealing case for understanding
+how urban air quality systems fail.
+</p>
+
+
+<h2>Not All Cities Pollute the Same Way</h2>
+
+<p>
+To translate averages into lived experience, exposure can be measured as the number
+of days per year when air quality exceeds hazardous thresholds. When viewed through
+this lens, inequality becomes sharper. Cities in the Delhi National Capital Region
+record dramatically higher shares of hazardous air days than most other Indian cities.
+This confirms the first hypothesis: pollution is not evenly distributed. It clusters
+regionally and persists structurally.
+</p>
+<div class="hypothesis-check">
+✔ Pollution exposure is structurally uneven and regionally concentrated.
+</div>
+
+
+<p>
+If air pollution were simply a function of urban growth, India’s largest and fastest-growing
+cities would all experience similar air quality outcomes. In reality, they do not.
+</p>
+
+<p>
+To understand this divergence, we compare average Air Quality Index (AQI) levels across
+major Indian cities between 2020 and 2024. This comparison reveals a striking imbalance.
+While several cities face elevated pollution, one stands consistently apart.
+</p>
+<div class="plot-block">
+  <div class="plot-context">
+    Average AQI across major Indian cities (2015–2020). Delhi consistently records
+    higher pollution levels than other large urban centres.
+  </div>
+
+  <iframe
+    src="plots/major_city.html"
+    width="100%"
+    height="550"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+</div>
+<p>
+Even when compared with cities of similar population size and economic growth,
+Delhi’s average AQI remains markedly higher — not just during peak events, but
+across entire years.
+</p>
+
+
+
+
+
+<h2>Growth Creates Pressure, Not Destiny</h2>
+
+<p>
+It is tempting to assume that severe air pollution is simply the price paid for rapid growth.
+More people generate more demand for mobility, housing, energy, and goods. This demand,
+in turn, produces emissions. Under this logic, the most polluted cities should simply be the
+largest or fastest-growing ones.
+</p>
+
+<p>
+But this assumption collapses under comparison. Mumbai, Bengaluru, Hyderabad, and Delhi
+have all expanded rapidly over the past two decades. All have seen surges in vehicle ownership,
+construction activity, and energy use. Yet only one of these cities repeatedly experiences
+prolonged periods where air quality crosses into hazardous territory.
+</p>
+
+<p>
+To ground the discussion, we begin with Delhi’s average air quality over recent years. The
+yearly averages provide a useful baseline, not because they capture lived experience perfectly,
+but because they reveal persistence.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    Yearly average AQI in Delhi from 2020 to 2024. Despite fluctuations, pollution remains
+    consistently severe, indicating that short-term improvements do not alter long-term exposure.
+  </div>
+  <div class="plot-placeholder">
+    <iframe
+    src="plots/seasonal_aqi_waves.html"
+    width="100%"
+    height="550"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+  </div>
+</div>
+
+<p>
+Even during periods of reduced activity, such as the COVID lockdown, yearly averages remain
+dominated by extreme winter pollution. This persistence suggests that emissions alone do not
+fully explain Delhi’s air quality crisis.
+</p>
+
+<h2>When Pollution Has Nowhere to Escape</h2>
+
+<div class="delhi-pollution">
+  <p>
+    The defining feature of Delhi’s pollution problem is not production but retention.
+    Once pollutants enter the atmosphere, they remain suspended far longer than in many
+    other Indian cities.
+  </p>
+
+  <p>
+    Geography plays a decisive role. Delhi sits inland on flat terrain, far from coastal winds that
+    help disperse pollutants. During winter months, weak wind speeds and frequent temperature
+    inversions trap cold air near the surface, effectively sealing pollutants close to where people
+    live and breathe.
+  </p>
+
+  <p>
+    This behaviour becomes visible when air quality is examined month by month rather than
+    year by year. Seasonal patterns repeat with remarkable consistency, overwhelming short-term
+    policy interventions or behavioural changes.
+  </p>
+</div>
+
+
+<div class="plot-block">
+  <div class="plot-context">
+    Monthly AQI patterns across years reveal recurring winter peaks and monsoon relief,
+    underscoring the structural nature of Delhi’s pollution cycle.
+  </div>
+  <div class="plot-placeholder">
+   <iframe
+    src="plots/winter_delhi.html"
+    width="100%"
+    height="550"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+  </div>
+</div>
+
+<p>
+The implication is uncomfortable but clear: without addressing dispersion conditions,
+emission reductions alone struggle to produce lasting improvements.
+</p>
+
+<div class="hypothesis-check">
+✔ Pollution compresses into predictable winter windows that overpower short-term controls.
+</div>
+
+
+<h2>Winter Is Regional, Not Local</h2>
+<p>
+Winter hazardous air is not uniquely a Delhi phenomenon. The data shows that
+multiple major Indian cities experience a similar share of hazardous winter days.
+Seasonal atmospheric conditions — temperature inversions, low wind speeds, and
+regional pollution transport — affect an entire geographic belt rather than a
+single city.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    Share of hazardous winter days across major Indian cities.
+    Winter pollution appears as a regional pattern, not a single-city anomaly.
+  </div>
+
+  <!-- PLOT: winter hazard comparison -->
+  <iframe
+    src="plots/winter_share.html"
+    width="100%"
+    height="550"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+</div>
+
+<p>
+This finding shifts the conversation. Winter pollution is not evidence of a
+single city failing — it is evidence of a regional system under stress.
+What differentiates Delhi is what happens after winter ends. While other cities
+return closer to their historical norms, Delhi repeatedly rebounds into
+above-baseline pollution levels.
+</p>
+
+<div class="pull-quote">
+Winter is regional. Delhi’s failure is persistence.
+</div>
+
+
+<h2>Diwali Reveals a Fragile System</h2>
+
+<p>
+Public discourse often frames Diwali as the primary cause of Delhi’s most severe pollution
+episodes. Firecracker emissions do introduce a short-lived increase in particulate matter,
+but isolating the festival as the cause obscures a more important reality.
+</p>
+
+<p>
+Diwali arrives at a moment when Delhi’s atmosphere is already under stress. By late October
+and early November, wind speeds weaken, temperatures begin to drop, and the conditions
+that allow pollution to disperse start to collapse. In this state, even brief increases in
+emissions can produce sharp and visible spikes in air quality indices.
+</p>
+
+<p>
+Rather than creating a pollution crisis, Diwali exposes how little margin for error the system
+has left. The same activity that might produce a modest effect at another time of year
+can trigger a dramatic deterioration when dispersion conditions are already failing.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    Year-by-year AQI patterns around Diwali show a recurring spike across multiple years.
+    The timing is consistent, but the magnitude varies depending on background pollution
+    levels and meteorological conditions.
+  </div>
+
+  <!-- PLOT F1: Year-wise AQI trend highlighting Diwali period (2020–2025) -->
+  <div class="plot-placeholder">
+     <iframe
+    src="plots/diwali_change_year.html"
+    width="100%"
+    height="550"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+  </div>
+</div>
+
+<p>
+Looking more closely at the days immediately surrounding Diwali reveals how rapidly air
+quality can deteriorate once the system is pushed beyond its limits.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    Comparison of AQI levels before and after Diwali in Delhi. Increases are abrupt,
+    often persisting for days after the festival rather than dissipating immediately.
+  </div>
+
+  <!-- PLOT F2: Before vs After Diwali AQI comparison -->
+  <div class="plot-placeholder">
+     <iframe
+    src="plots/before_diwali.html"
+    width="100%"
+    height="550"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+   <iframe
+    src="plots/after_diwali.html"
+    width="100%"
+    height="550"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+  </div>
+</div>
+
+<p>
+Together, these patterns suggest that Diwali functions less as a cause and more as a
+stress test. It reveals how close Delhi’s air quality system already is to failure each year,
+long before a single firecracker is lit.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    Animated or time-lapse visualization showing how AQI evolves across Delhi during
+    the Diwali period. The rapid spread and persistence of high AQI values highlight
+    the city’s limited capacity to recover once pollution accumulates.
+  </div>
+
+  <!-- PLOT F3: Animated / video-style AQI map for Delhi during Diwali -->
+  <div class="plot-placeholder">
+     <iframe
+    src="plots/diwali_period.html"
+    width="100%"
+    height="550"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+  </div>
+</div>
+
+<p>
+Diwali therefore functions as a stress test rather than a root cause. The festival
+reveals how little resilience the system retains once dispersion weakens. This supports
+the third hypothesis: sudden emission shocks expose structural fragility already present
+in the atmosphere.
+</p>
+<div class="hypothesis-check">
+✔ Emission shocks expose fragility already embedded in the atmospheric system.
+</div>
+
+
+
+
+<h2>When Everything Stopped</h2>
+
+<p>
+In March 2020, India entered an unprecedented nationwide lockdown. Roads emptied,
+factories shut down, construction halted, and air traffic nearly disappeared. For air
+quality researchers, this moment created a rare natural experiment — a sudden,
+near-total pause in urban emissions.
+</p>
+
+<p>
+To understand how deeply everyday human activity shapes air quality, we compare
+average AQI levels across Indian cities before COVID (2015–2019 baseline) with conditions
+during the strict lockdown period (March–May 2020). City-level data from 23 monitoring
+locations shows Delhi’s pre-lockdown average AQI of about 267 fell to roughly 133 during
+the lockdown — a drop of over 130 points — while cities like Patna, Gurugram, and Lucknow
+saw similar sharp improvements.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    Average city-level AQI across India before COVID (2015–2019 baseline).
+    Pollution patterns closely follow geography and urban structure.
+  </div>
+  <div class="plot-placeholder">
+    <iframe
+      src="plots/india_pre_covid_map.html"
+      width="100%"
+      height="550"
+      style="border:none;"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<p>
+Before the lockdown, air pollution followed a familiar pattern. Inland and landlocked
+cities — particularly across northern India — recorded persistently high AQI levels,
+while coastal cities benefited from stronger dispersion.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    AQI levels during the COVID lockdown (March–May 2020).
+    Emissions fell sharply across nearly all cities.
+  </div>
+  <div class="plot-placeholder">
+    <iframe
+      src="plots/india_covid_map.html"
+      width="100%"
+      height="550"
+      style="border:none;"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<p>
+The improvement was immediate and widespread. Cities that routinely experienced
+hazardous air quality saw dramatic declines within weeks. For a brief moment,
+Delhi’s air resembled that of cities with far lower baseline pollution.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    Change in AQI during the COVID lockdown (negative values indicate improvement).
+    The largest gains occur in cities that are usually the most polluted.
+  </div>
+  <div class="plot-placeholder">
+    <iframe
+      src="plots/india_covid_change_map.html"
+      width="100%"
+      height="550"
+      style="border:none;"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<p>
+The magnitude of improvement during the lockdown is not merely a curiosity.
+It demonstrates that Delhi’s air quality problem is not irreversible.
+When emissions fall, air quality responds rapidly — confirming that the crisis
+is driven by human activity interacting with poor dispersion conditions,
+not by immutable natural factors alone.
+</p>
+<p>
+The lockdown confirms the fourth hypothesis. When emissions fall, air improves almost
+immediately. Yet the uneven recovery that follows shows that temporary suppression does
+not eliminate structural vulnerability. Without systemic change, pollution returns.
+</p>
+
+
+<div class="hypothesis-check">
+✔Emission reductions improve air rapidly, but recovery remains unstable without structural change.
+</div>
+
+<p>
+The lockdown did not permanently solve India’s air pollution problem. But it revealed
+something critical: urban air quality is highly responsive to human activity. The same
+cities that suffer the most in normal times benefit the most when emissions are removed.
+When restrictions eased, pollution returned — underscoring that lasting solutions
+must address how pollution accumulates, not just how briefly it can be suppressed.
+</p>
+
+<p>
+For residents, these patterns translate into lived consequences.
+Repeated exposure to severe winter pollution means months of breathing air
+that exceeds safe limits many times over. Children, the elderly, and those
+with respiratory conditions bear a disproportionate burden — turning what
+appears in charts as seasonal variation into a public health emergency.
+</p>
+
+<h2>Recovery Was Not Equal Across Cities</h2>
+
+<p>
+The COVID lockdown created a rare natural experiment across Indian cities. For a short period,
+traffic dropped, construction paused, and industrial output slowed. Air quality improved almost
+everywhere. But what happened after restrictions were lifted reveals something more important
+than the temporary improvement itself.
+</p>
+
+<p>
+To compare recovery fairly, air quality is measured here relative to each city’s own pre-COVID
+baseline. A value of 1.0 represents that city’s normal pollution level before the pandemic.
+Values below 1.0 indicate cleaner-than-normal air, while values above 1.0 indicate pollution
+levels exceeding the historical baseline.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    Post-COVID AQI recovery relative to each city’s baseline. The shaded band marks the lockdown
+    period. Values above 1.0 indicate pollution exceeding each city’s normal pre-COVID level.
+  </div>
+
+  <iframe
+    src="plots/recovery_covid.html"
+    width="100%"
+    height="560"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+</div>
+
+<p>
+During the lockdown window, all cities show a visible dip below their baseline levels, confirming
+a broad and immediate air quality improvement. However, the recovery patterns diverge sharply
+afterward. Most cities return gradually toward their historical norms and fluctuate around their
+baseline range.
+</p>
+
+<p>
+Delhi behaves differently. Its air quality rebounds faster and crosses above its baseline more
+frequently than other major cities. The spikes are sharper and more persistent. This pattern
+suggests that once emissions return, pollution accumulates in Delhi more quickly than elsewhere.
+The difference is not only about how much pollution is produced — but how efficiently a city
+can disperse what it produces.
+</p>
+
+<div class="plot-block">
+  <div class="plot-context">
+    Share of days with hazardous air quality (AQI ≥ 300) before and after COVID.
+    Delhi maintains the highest exposure even after the temporary reset.
+  </div>
+
+  <iframe
+    src="plots/hazard_share.html"
+    width="100%"
+    height="520"
+    style="border:none;"
+    loading="lazy">
+  </iframe>
+</div>
+
+<p>
+Looking at exposure rather than averages makes the divergence clearer.
+Even after the temporary pollution reset, Delhi continues to experience a
+higher share of hazardous air days than other major cities. While many cities
+partially recover toward safer conditions, Delhi rapidly returns to extreme
+pollution ranges. This indicates that the city’s vulnerability is not only
+about emissions volume, but about how pollution accumulates and persists.
+</p>
+
+
+<div class="pull-quote">
+Recovery was not equal — Delhi’s pollution returned faster and overshot its own normal levels more often than other major cities.
+</div>
+
+
+<h2>Conclusion: What the Data Show</h2>
+
+<p>
+Taken together, the analyses and visualisations in this project support a single, data-driven
+story: Delhi’s air quality crisis cannot be explained by growth, festivals, or temporary
+disruptions in isolation. It emerges from the interaction of emissions, geography, climate,
+and timing. Other Indian cities grow rapidly without experiencing the same severity because
+pollutants disperse more easily. In Delhi, they do not.
+</p>
+
+<h3 style="font-size:1.35rem; margin-top:40px; margin-bottom:16px;">Key findings</h3>
+<ul style="margin-bottom:26px;">
+  <li><strong>Inequality is spatial.</strong> The all-India map, state coverage map, and
+  major-city comparison show that pollution is unevenly distributed. Delhi and the northern
+  Indo-Gangetic belt consistently rank among the worst; coastal and southern cities often
+  fare better despite comparable urbanisation.</li>
+  <li><strong>Persistence outweighs episodes.</strong> Delhi’s yearly (seasonal_aqi_waves)
+  and monthly (winter_delhi) trends show that high AQI is the norm in winter, not the
+  exception. Short-lived events like Diwali add a spike on an already elevated baseline.</li>
+  <li><strong>Dispersion matters as much as emissions.</strong> Geography and meteorology
+  — flat terrain, weak winter winds, temperature inversions — keep pollutants trapped.
+  The COVID lockdown experiment (pre-, during-, and change maps) proved that when emissions
+  drop, air improves sharply; when activity resumed, pollution returned. So both emissions
+  and the capacity of the atmosphere to disperse them determine outcomes.</li>
+  <li><strong>Diwali is a stress test, not the sole cause.</strong> Year-wise, before/after,
+  and period visualisations show that Diwali coincides with an already stressed system.
+  The same emissions would have a smaller effect in monsoon; in late autumn they tip the
+  system into severe episodes.</li>
+  <li><strong>Monitoring gaps hide part of the picture.</strong> State-level and
+  station-level maps reveal large areas with little or no PM2.5 data. Grey on the map
+  means missing monitoring, not necessarily clean air — a limitation for both research
+  and policy.</li>
+</ul>
+
+<h3 style="font-size:1.35rem; margin-top:40px; margin-bottom:16px;">Limitations</h3>
+<p>
+The analysis relies on publicly available CPCB and OpenAQ data. Coverage is incomplete:
+many states and smaller cities have few or no monitoring stations, and temporal coverage
+varies. Delhi NCR is well observed (hourly, multi-station); other regions are not. We do
+not establish causality — only associations and consistency with a system view of pollution.
+Meteorological and emissions inventories were not modelled here; they would strengthen
+future work.
+</p>
+
+<h3 style="font-size:1.35rem; margin-top:40px; margin-bottom:16px;">Recommendations</h3>
+<ul style="margin-bottom:26px;">
+  <li>Expand monitoring in data-sparse states and tier‑2 cities so that national and
+  city-level assessments are representative.</li>
+  <li>Design policy for both emissions and dispersion: reduce sources (vehicles, industry,
+  waste burning) and factor in geography and season (e.g. stricter curbs when dispersion
+  is weak).</li>
+  <li>Use Delhi’s seasonal and Diwali patterns to anticipate severe episodes and communicate
+  risk in advance, rather than treating each spike as a one-off event.</li>
+  <li>Replicate similar analyses with longer time series and, where possible, link AQI to
+  health or economic outcomes for stronger evidence.
+</li>
+</ul>
+
+<div class="pull-quote">
+Some cities breathe worse air not because they emit more — but because their air has nowhere to go.
+</div>
+
+<p>
+The central takeaway of this project is that air quality in India is a system outcome:
+emissions, geography, climate, and timing interact to produce the patterns we see in the
+data. Understanding that system is the first step toward solutions that last.
+</p>
+
+<h3>Next Experiments</h3>
+
+<ul>
+<li>Incorporate meteorological models to quantify the role of wind speed and inversion layers</li>
+<li>Link AQI exposure to hospital admission and mortality datasets</li>
+<li>Extend analysis to rural monitoring gaps using satellite PM2.5 estimates</li>
+<li>Simulate seasonal emission control scenarios</li>
+<li>Compare Delhi with global inland megacities facing similar dispersion limits</li>
+</ul>
+
+
+<h2>Data &amp; methods</h2>
+
+<p>
+This analysis draws on three main datasets, all processed from CPCB-backed and OpenAQ
+sources and publicly available AQI records.
+</p>
+
+<ul style="margin-bottom: 26px;">
+  <li><strong>Delhi NCR AQI (2020–2024):</strong> Hourly readings from multiple monitoring
+  stations across Delhi and the National Capital Region. Includes PM2.5, PM10, NO₂, SO₂,
+  CO, O₃, and derived AQI and category. Used for seasonal patterns, Diwali comparisons,
+  and yearly trends.</li>
+  <li><strong>City-level COVID AQI change (2015–2020):</strong> Pre-COVID baseline
+  (2015–2019 average) and lockdown-period (March–May 2020) average AQI for 23 Indian
+  cities. Used for the pre-COVID, lockdown, and change maps.</li>
+  <li><strong>India PM2.5 snapshot:</strong> Station-level PM2.5 measurements across
+  Indian monitoring locations (state, city, station, coordinates). Used for the
+  state coverage map and the PM2.5 snapshot map.</li>
+</ul>
+
+<p>
+Delhi’s pollution is not episodic — it is structural. Cities with weak dispersion
+conditions accumulate pollution faster and clear it more slowly. Without policies
+that account for seasonal retention and regional airflow, temporary gains will continue
+to evaporate. The data do not describe a crisis of spikes. They describe a system
+that traps pollution by design.
+</p>
+
+
+
+<!-- <footer>
+  <p>
+    Data sources: CPCB-backed datasets, OpenAQ, publicly available AQI records.
+    Processed files: <code>delhi_ncr_aqi_2020_2024_clean.csv</code>,
+    <code>covid_city_aqi_change_2015_2020.csv</code>,
+    <code>india_pm25_snapshot_clean.csv</code>.
+    This project was conducted as an exploratory data science analysis.
+  </p>
+</footer> -->
+
+</div>
+</body>
+</html>
