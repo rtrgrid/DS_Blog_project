@@ -8,7 +8,19 @@
 
 
 <style>
-/* --- Base layout --- */
+
+@media print {
+
+  iframe {
+    transform: scale(1) !important;
+    width: 100% !important;
+    height: 520px !important;
+    overflow: visible !important;
+  }
+
+}
+
+/* ---------- Base layout ---------- */
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
@@ -20,7 +32,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- Container --- */
+/* ---------- Container ---------- */
 
 .container {
   max-width: 980px;
@@ -31,7 +43,7 @@ body {
   box-shadow: 0 20px 60px rgba(0,0,0,0.08);
 }
 
-/* --- Typography --- */
+/* ---------- Typography ---------- */
 
 h1 {
   font-size: 3.4rem;
@@ -61,18 +73,14 @@ p {
   font-size: 1.08rem;
   margin-bottom: 22px;
   color: #222;
-  max-width: 75ch; /* improves readability */
+  max-width: 75ch;
 }
-
-/* Lead paragraph */
 
 .lead {
   font-size: 1.4rem;
   color: #333;
   margin-bottom: 50px;
 }
-
-/* Pull quote */
 
 .pull-quote {
   font-size: 1.55rem;
@@ -85,7 +93,7 @@ p {
   color: #b00020;
 }
 
-/* --- Plot blocks --- */
+/* ---------- Plot blocks ---------- */
 
 .plot-block {
   background: #fafafa;
@@ -106,15 +114,25 @@ p {
   margin-bottom: 14px;
 }
 
-/* --- Embedded plots --- */
-
 iframe {
   width: 100%;
   border: none;
   border-radius: 10px;
 }
 
-/* --- Image overlay section --- */
+/* ---------- Side-by-side plot row ---------- */
+
+.plot-row {
+  display: flex;
+  gap: 16px;
+}
+
+.plot-row iframe {
+  width: 50%;
+  height: 520px;
+}
+
+/* ---------- Image overlay section ---------- */
 
 .delhi-pollution {
   position: relative;
@@ -142,35 +160,7 @@ iframe {
   font-size: 1rem;
 }
 
-/* --- Footer --- */
-
-footer {
-  margin-top: 140px;
-  font-size: 0.95rem;
-  border-top: 2px solid #000;
-  padding-top: 28px;
-  color: #555;
-}
-
-/* --- Print/PDF optimization --- */
-
-@media print {
-  body {
-    background: #fff;
-  }
-
-  .container {
-    box-shadow: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .plot-block:hover {
-    transform: none;
-  }
-
-
-}
+/* ---------- Highlight box ---------- */
 
 .hypothesis-check {
   margin: 40px 0;
@@ -183,50 +173,89 @@ footer {
   color: #0b5d2a;
 }
 
-.hypothesis-check strong {
-  font-weight: 800;
+/* ---------- Footer ---------- */
+
+footer {
+  margin-top: 140px;
+  font-size: 0.95rem;
+  border-top: 2px solid #000;
+  padding-top: 28px;
+  color: #555;
 }
+
+/* =====================================================
+   PRINT STYLES — compact PDF layout
+   ===================================================== */
 
 @media print {
 
   body {
+    font-size: 10.5pt;
+    line-height: 1.3;
     margin: 0;
+    background: white;
   }
 
-  h1, h2 {
-    page-break-after: avoid;
-    page-break-inside: avoid;
+  .container {
+    max-width: 100%;
+    padding: 18px 24px;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: 20pt;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+
+  h2::after {
+    display: none;
   }
 
   p {
+    font-size: 10pt;
+    margin-bottom: 8px;
+    max-width: 100%;
     page-break-inside: avoid;
   }
 
+  .lead {
+    font-size: 10.5pt;
+    margin-bottom: 12px;
+  }
+
+  .pull-quote {
+    font-size: 11pt;
+    padding: 10px;
+    margin: 12px 0;
+  }
+
+  .hypothesis-check {
+    margin: 10px 0;
+    padding: 8px 12px;
+    font-size: 10pt;
+  }
+
   .plot-block {
+    padding: 10px;
+    margin: 14px 0;
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
   iframe {
+    height: 360px !important;
+    border-radius: 0;
     page-break-inside: avoid;
-    break-inside: avoid;
   }
 
-}
-
-.plot-row {
-  display: flex;
-  gap: 16px;
-}
-
-.plot-row iframe {
-  width: 50%;
-  height: 520px;
-  border: none;
-}
-
-/* stack vertically when printing */
-@media print {
   .plot-row {
     flex-direction: column;
   }
@@ -234,11 +263,24 @@ footer {
   .plot-row iframe {
     width: 100%;
   }
+
+  img, canvas, svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  footer {
+    margin-top: 20px;
+    font-size: 9pt;
+  }
+
+  .plot-block:hover {
+    transform: none;
+  }
 }
 
-
-
 </style>
+
 
 </head>
 
