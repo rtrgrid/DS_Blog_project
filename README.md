@@ -1,158 +1,146 @@
 # Why Some Indian Cities Breathe Worse Air Than Others
 
-A data storytelling project exploring structural air pollution differences across Indian cities, with Delhi as a central case study.
+🔗 **Live interactive story:**  
+https://rtrgrid.github.io/DS_Blog_project/
 
-This project turns messy air quality data into a clear narrative:  
-a question → evidence → interpretation → conclusion.
+A data storytelling research project investigating structural air pollution inequality across Indian cities, with Delhi as a central systems case study.
+
+---
+
+## Research Abstract
+
+This project investigates why certain Indian cities — particularly Delhi — experience persistently higher air pollution exposure despite comparable urban growth trajectories. Using multi-year AQI datasets (2015–2025), the study treats pollution as a dynamic system shaped by emissions, geography, and atmospheric retention rather than isolated spikes.
+
+A natural experiment created by the COVID lockdown reveals that pollution is rapidly reversible when emissions fall, but recovery trajectories differ sharply across cities. Delhi rebounds faster and overshoots baseline pollution more aggressively than peer cities, suggesting structural dispersion weaknesses. Seasonal analysis shows winter pollution compresses regionally, but Delhi uniquely fails to recover after peak events.
+
+The findings support a retention-driven model of urban air inequality: pollution severity depends not only on production, but on how efficiently cities disperse accumulated pollutants. The project demonstrates how data storytelling can translate environmental systems into evidence-backed public narratives.
 
 ---
 
 ## Research Question
 
-Why does Delhi experience persistently worse air pollution than other major Indian cities — and does it recover differently after large emission shocks?
+**Why does Delhi experience structurally worse air pollution than other major Indian cities, and how does its recovery differ after large emission shocks?**
 
 ---
 
 ## Hypotheses
 
-- **H1:** Delhi’s pollution problem is driven by retention, not just emissions.
-- **H2:** Winter pollution spikes are regional, but Delhi fails to recover.
-- **H3:** Temporary emission drops (COVID lockdown) reveal dispersion weaknesses.
-- **H4:** Post-COVID recovery overshoots baseline faster in Delhi than in peer cities.
+- Delhi’s pollution is driven by atmospheric retention, not only emissions  
+- Winter spikes are regional, but Delhi fails to normalize afterward  
+- Lockdown emission cuts expose dispersion limits  
+- Post-COVID recovery overshoots baseline faster in Delhi  
 
 ---
 
-## Dataset Overview
+## Project Architecture
 
-This project combines multiple public air quality datasets:
+Raw AQI datasets (CPCB + OpenAQ)
+│
+▼
+Data Cleaning & Validation (Pandas)
+│
+▼
+Baseline Construction (2015–2019)
+│
+▼
+Seasonal + COVID Natural Experiment Analysis
+│
+▼
+Aggregation & Metrics
+│
+▼
+Plotly Visualization Engine
+│
+▼
+Narrative Data Story (HTML + CSS)
+│
+▼
+Interactive Public Report (GitHub Pages)
 
-- City-level AQI records (2015–2024)
-- Pre-COVID baseline data (2015–2019)
-- COVID lockdown period data (March–May 2020)
-- Post-COVID recovery data (2020–2025)
-- PM2.5 monitoring coverage across Indian states
 
-Key fields:
-
-- Date / Datetime
-- City
-- AQI
-- PM2.5 and pollutant breakdown
-- Geographic coordinates (for mapping)
-
-All datasets were cleaned, validated, and aggregated into comparable monthly and yearly summaries.
+This pipeline separates data engineering, analytical modeling, and narrative visualization into reproducible stages.
 
 ---
 
-## Analysis Workflow
+## Methodology
 
-1. **Data Cleaning**
-   - Standardized timestamps
-   - Removed invalid entries
-   - Normalized AQI scales
-   - Filtered out incomplete city records
+- Multi-source AQI dataset harmonization  
+- Pre/post intervention baseline modeling  
+- Seasonal wave decomposition  
+- Relative recovery index construction  
+- Hazard exposure measurement  
+- Interactive visualization synthesis  
 
-2. **Baseline Construction**
-   - Built pre-COVID city baselines (2015–2019)
-   - Calculated relative recovery ratios
-
-3. **Seasonal Analysis**
-   - Winter spike detection
-   - Month-by-month AQI patterns
-
-4. **COVID Natural Experiment**
-   - Compared lockdown vs baseline
-   - Measured recovery trajectories
-
-5. **Visualization**
-   - Interactive city comparisons
-   - Choropleth maps
-   - Recovery wave plots
-   - Hazard distribution charts
+All transformations are reproducible via notebooks in `/analysis`.
 
 ---
 
 ## Key Findings
 
-- Delhi consistently ranks among the most structurally polluted cities.
-- Winter pollution spikes repeat with high predictability.
-- COVID lockdown proved pollution is reversible — temporarily.
-- Recovery after lockdown was unequal.
-- Delhi rebounds faster and accumulates pollution more aggressively.
-- Geography + atmospheric retention amplify emissions impact.
+- Pollution inequality is structural, not episodic  
+- Delhi accumulates pollutants faster than peer cities  
+- Winter compression is regional, persistence is local  
+- COVID proved pollution reversibility  
+- Recovery patterns reveal atmospheric limits  
+- Geography amplifies emissions impact  
 
-Delhi’s air crisis is not only about how much pollution is produced —  
-it is about how much is allowed to remain.
-
----
-
-## Project Deliverables
-
-- Reproducible notebooks for cleaning and aggregation
-- Interactive Plotly visualizations
-- Narrative HTML blog
-- Structured research framing
-- Evidence-backed conclusions
+**Delhi’s crisis is not only about production — it is about retention.**
 
 ---
 
-## How to Run
+## Deliverables
+
+- Reproducible analytical notebooks  
+- Clean aggregated datasets  
+- Interactive Plotly visualizations  
+- Narrative data story website  
+- Research-style documentation  
+- Evidence-backed conclusions  
+
+---
+
+## Run Locally
 
 ```bash
 pip install -r requirements.txt
 jupyter notebook
-```
+Plots → /plots
+Story → index.html
 
-Open notebooks in `/analysis` and run in order.
+Or view live:
 
-Generated plots are saved to:
+👉 https://rtrgrid.github.io/DS_Blog_project/
 
-```
-/plots
-```
+Tools & Stack
+Python
 
-The final story is in:
+Pandas
 
-```
-index.html
-```
+Plotly
 
----
+Jupyter
 
-## Tools Used
+HTML/CSS
 
-- Python
-- Pandas
-- Plotly
-- Jupyter
-- HTML/CSS
-- GitHub Pages
+GitHub Pages
 
----
+Data storytelling methodology
 
-## Next Experiments
+Portfolio Summary (Resume Version)
+Data storytelling project analyzing structural air pollution inequality across Indian cities using multi-year AQI datasets. Built a reproducible analytical pipeline, modeled seasonal pollution behavior, and visualized post-COVID recovery dynamics. Produced an interactive narrative report translating environmental systems into policy-relevant insights.
 
-If given more time:
+Future Work
+Integrate meteorological wind field modeling
 
-- Add meteorological wind data
-- Model dispersion vs geography
-- Compare industrial vs traffic emissions
-- Predict winter hazard windows
-- Add hospital respiratory data
+Dispersion simulation by geography
 
----
+Emissions source attribution
 
-## References
+Predictive winter hazard modeling
 
-- CPCB Air Quality Data
-- OpenAQ
-- Public AQI monitoring datasets
-- Storytelling with Data principles
-- Fundamentals of Data Visualization
+Link AQI to health outcomes
 
----
-
-## Author
-
-Data storytelling project for academic submission.
+References
+CPCB · OpenAQ · Public AQI datasets
+Storytelling with Data · Fundamentals of Data Visualization
 
