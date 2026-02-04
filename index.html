@@ -9,17 +9,6 @@
 
 <style>
 
-@media print {
-
-  iframe {
-    transform: scale(1) !important;
-    width: 100% !important;
-    height: 520px !important;
-    overflow: visible !important;
-  }
-
-}
-
 /* ---------- Base layout ---------- */
 
 body {
@@ -35,12 +24,23 @@ body {
 /* ---------- Container ---------- */
 
 .container {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 40px auto;
   padding: 70px 60px;
   background: #ffffff;
   border-radius: 18px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+
+  /* center children */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* unified reading column */
+.container > * {
+  width: 100%;
+  max-width: 820px;
 }
 
 /* ---------- Typography ---------- */
@@ -87,7 +87,7 @@ p {
   font-weight: 600;
   line-height: 1.5;
   padding: 30px 36px;
-  margin: 70px 0;
+  margin: 70px auto;
   background: linear-gradient(90deg, #fff5f5, #ffffff);
   border-radius: 12px;
   color: #b00020;
@@ -98,14 +98,19 @@ p {
 .plot-block {
   background: #fafafa;
   padding: 28px;
-  margin: 70px 0;
+  margin: 70px auto;
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  transition: transform 0.2s ease;
+  width: 100%;
+  max-width: 820px;
 }
 
-.plot-block:hover {
-  transform: translateY(-3px);
+.plot-block iframe {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
 }
 
 .plot-context {
@@ -114,17 +119,13 @@ p {
   margin-bottom: 14px;
 }
 
-iframe {
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-}
-
 /* ---------- Side-by-side plot row ---------- */
 
 .plot-row {
   display: flex;
   gap: 16px;
+  justify-content: center;
+  align-items: center;
 }
 
 .plot-row iframe {
@@ -132,7 +133,7 @@ iframe {
   height: 520px;
 }
 
-/* ---------- Image overlay section ---------- */
+/* ---------- Delhi image section ---------- */
 
 .delhi-pollution {
   position: relative;
@@ -150,20 +151,18 @@ iframe {
   position: absolute;
   inset: 0;
   background: rgba(255, 255, 255, 0.78);
-  z-index: 0;
 }
 
 .delhi-pollution p {
   position: relative;
   z-index: 1;
-  line-height: 1.7;
   font-size: 1rem;
 }
 
 /* ---------- Highlight box ---------- */
 
 .hypothesis-check {
-  margin: 40px 0;
+  margin: 40px auto;
   padding: 20px 26px;
   background: #f3fff5;
   border-left: 6px solid #2ecc71;
@@ -173,26 +172,13 @@ iframe {
   color: #0b5d2a;
 }
 
-/* ---------- Footer ---------- */
-
-footer {
-  margin-top: 140px;
-  font-size: 0.95rem;
-  border-top: 2px solid #000;
-  padding-top: 28px;
-  color: #555;
-}
-
-/* =====================================================
-   PRINT STYLES — compact PDF layout
-   ===================================================== */
+/* ---------- Print styles ---------- */
 
 @media print {
 
   body {
     font-size: 10.5pt;
     line-height: 1.3;
-    margin: 0;
     background: white;
   }
 
@@ -204,31 +190,16 @@ footer {
     border-radius: 0;
   }
 
-  h1 {
-    font-size: 20pt;
-    margin-bottom: 10px;
+  .container > * {
+    max-width: 100%;
   }
 
-  h2 {
-    font-size: 14pt;
-    margin-top: 22px;
-    margin-bottom: 6px;
-  }
-
-  h2::after {
-    display: none;
-  }
+  h1 { font-size: 20pt; }
+  h2 { font-size: 14pt; margin-top: 22px; }
 
   p {
     font-size: 10pt;
     margin-bottom: 8px;
-    max-width: 100%;
-    page-break-inside: avoid;
-  }
-
-  .lead {
-    font-size: 10.5pt;
-    margin-bottom: 12px;
   }
 
   .pull-quote {
@@ -237,23 +208,14 @@ footer {
     margin: 12px 0;
   }
 
-  .hypothesis-check {
-    margin: 10px 0;
-    padding: 8px 12px;
-    font-size: 10pt;
-  }
-
   .plot-block {
     padding: 10px;
     margin: 14px 0;
-    page-break-inside: avoid;
-    break-inside: avoid;
   }
 
   iframe {
     height: 360px !important;
     border-radius: 0;
-    page-break-inside: avoid;
   }
 
   .plot-row {
@@ -263,24 +225,9 @@ footer {
   .plot-row iframe {
     width: 100%;
   }
-
-  img, canvas, svg {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  footer {
-    margin-top: 20px;
-    font-size: 9pt;
-  }
-
-  .plot-block:hover {
-    transform: none;
-  }
 }
 
 </style>
-
 
 </head>
 
