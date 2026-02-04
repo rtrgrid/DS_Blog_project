@@ -187,6 +187,57 @@ footer {
   font-weight: 800;
 }
 
+@media print {
+
+  body {
+    margin: 0;
+  }
+
+  h1, h2 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  p {
+    page-break-inside: avoid;
+  }
+
+  .plot-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  iframe {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+}
+
+.plot-row {
+  display: flex;
+  gap: 16px;
+}
+
+.plot-row iframe {
+  width: 50%;
+  height: 520px;
+  border: none;
+}
+
+/* stack vertically when printing */
+@media print {
+  .plot-row {
+    flex-direction: column;
+  }
+
+  .plot-row iframe {
+    width: 100%;
+  }
+}
+
+
+
 </style>
 
 </head>
@@ -602,24 +653,21 @@ quality can deteriorate once the system is pushed beyond its limits.
     often persisting for days after the festival rather than dissipating immediately.
   </div>
 
-  <!-- PLOT F2: Before vs After Diwali AQI comparison -->
-  <div class="plot-placeholder">
-     <iframe
-    src="plots/before_diwali.html"
-    width="100%"
-    height="550"
-    style="border:none;"
-    loading="lazy">
-  </iframe>
-   <iframe
-    src="plots/after_diwali.html"
-    width="100%"
-    height="550"
-    style="border:none;"
-    loading="lazy">
-  </iframe>
+  <div class="plot-row">
+
+    <iframe
+      src="plots/before_diwali.html"
+      loading="lazy">
+    </iframe>
+
+    <iframe
+      src="plots/after_diwali.html"
+      loading="lazy">
+    </iframe>
+
   </div>
 </div>
+
 
 <p>
 Together, these patterns suggest that Diwali functions less as a cause and more as a
@@ -656,120 +704,75 @@ in the atmosphere.
 ✔ Emission shocks expose fragility already embedded in the atmospheric system.
 </div>
 
-
-
-
 <h2>When Everything Stopped</h2>
 
 <p>
-In March 2020, India entered an unprecedented nationwide lockdown. Roads emptied,
-factories shut down, construction halted, and air traffic nearly disappeared. For air
-quality researchers, this moment created a rare natural experiment — a sudden,
-near-total pause in urban emissions.
+In March 2020, India entered a nationwide lockdown. Roads emptied, factories shut,
+and air traffic nearly disappeared. For air quality researchers, this created a rare
+natural experiment — a sudden pause in urban emissions.
 </p>
 
 <p>
-To understand how deeply everyday human activity shapes air quality, we compare
-average AQI levels across Indian cities before COVID (2015–2019 baseline) with conditions
-during the strict lockdown period (March–May 2020). City-level data from 23 monitoring
-locations shows Delhi’s pre-lockdown average AQI of about 267 fell to roughly 133 during
-the lockdown — a drop of over 130 points — while cities like Patna, Gurugram, and Lucknow
-saw similar sharp improvements.
+Comparing pre-COVID air quality (2015–2019 baseline) with lockdown conditions
+(March–May 2020) reveals how strongly human activity shapes pollution. Delhi’s
+average AQI fell from roughly 267 to 133 — a drop of more than 130 points. Cities
+like Patna, Gurugram, and Lucknow showed similar improvements.
 </p>
 
 <div class="plot-block">
   <div class="plot-context">
     Average city-level AQI across India before COVID (2015–2019 baseline).
-    Pollution patterns closely follow geography and urban structure.
   </div>
-  <div class="plot-placeholder">
-    <iframe
-      src="plots/india_pre_covid_map.html"
-      width="100%"
-      height="550"
-      style="border:none;"
-      loading="lazy">
-    </iframe>
-  </div>
+  <iframe src="plots/india_pre_covid_map.html" width="100%" height="550" style="border:none;"></iframe>
 </div>
 
 <p>
-Before the lockdown, air pollution followed a familiar pattern. Inland and landlocked
-cities — particularly across northern India — recorded persistently high AQI levels,
-while coastal cities benefited from stronger dispersion.
+Before lockdown, inland northern cities consistently recorded higher pollution,
+while coastal cities benefited from stronger natural dispersion.
 </p>
 
 <div class="plot-block">
   <div class="plot-context">
     AQI levels during the COVID lockdown (March–May 2020).
-    Emissions fell sharply across nearly all cities.
   </div>
-  <div class="plot-placeholder">
-    <iframe
-      src="plots/india_covid_map.html"
-      width="100%"
-      height="550"
-      style="border:none;"
-      loading="lazy">
-    </iframe>
-  </div>
+  <iframe src="plots/india_covid_map.html" width="100%" height="550" style="border:none;"></iframe>
 </div>
 
 <p>
-The improvement was immediate and widespread. Cities that routinely experienced
-hazardous air quality saw dramatic declines within weeks. For a brief moment,
-Delhi’s air resembled that of cities with far lower baseline pollution.
+The improvement was immediate. Cities that routinely experience hazardous air
+quality saw sharp declines within weeks. For a brief period, Delhi’s air resembled
+that of cities with far lower baseline pollution.
 </p>
 
 <div class="plot-block">
   <div class="plot-context">
-    Change in AQI during the COVID lockdown (negative values indicate improvement).
-    The largest gains occur in cities that are usually the most polluted.
+    Change in AQI during lockdown. Negative values indicate improvement.
   </div>
-  <div class="plot-placeholder">
-    <iframe
-      src="plots/india_covid_change_map.html"
-      width="100%"
-      height="550"
-      style="border:none;"
-      loading="lazy">
-    </iframe>
-  </div>
+  <iframe src="plots/india_covid_change_map.html" width="100%" height="550" style="border:none;"></iframe>
 </div>
 
 <p>
-The magnitude of improvement during the lockdown is not merely a curiosity.
-It demonstrates that Delhi’s air quality problem is not irreversible.
-When emissions fall, air quality responds rapidly — confirming that the crisis
-is driven by human activity interacting with poor dispersion conditions,
-not by immutable natural factors alone.
-</p>
-<p>
-The lockdown confirms the fourth hypothesis. When emissions fall, air improves almost
-immediately. Yet the uneven recovery that follows shows that temporary suppression does
-not eliminate structural vulnerability. Without systemic change, pollution returns.
+This confirms an important insight: Delhi’s crisis is not permanent. When emissions fall,
+air quality responds quickly. Pollution is driven by human activity interacting with
+atmospheric conditions — not by unchangeable natural forces.
 </p>
 
+<p>
+However, the improvement did not last. Once activity resumed, pollution returned.
+Temporary suppression exposed a deeper structural vulnerability: without systemic
+change, recovery remains fragile.
+</p>
 
 <div class="hypothesis-check">
-✔Emission reductions improve air rapidly, but recovery remains unstable without structural change.
+✔ Emission cuts produce rapid improvement — but without structural reform, pollution rebounds.
 </div>
 
 <p>
-The lockdown did not permanently solve India’s air pollution problem. But it revealed
-something critical: urban air quality is highly responsive to human activity. The same
-cities that suffer the most in normal times benefit the most when emissions are removed.
-When restrictions eased, pollution returned — underscoring that lasting solutions
-must address how pollution accumulates, not just how briefly it can be suppressed.
+For residents, this pattern is not abstract. Repeated winter exposure means months of
+breathing air far beyond safe limits. What appears in charts as seasonal variation is,
+in reality, a recurring public health emergency.
 </p>
 
-<p>
-For residents, these patterns translate into lived consequences.
-Repeated exposure to severe winter pollution means months of breathing air
-that exceeds safe limits many times over. Children, the elderly, and those
-with respiratory conditions bear a disproportionate burden — turning what
-appears in charts as seasonal variation into a public health emergency.
-</p>
 
 <h2>Recovery Was Not Equal Across Cities</h2>
 
